@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C3EB1F2-2011-485C-BAC5-7F5964410595}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCao.Designer.cs">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaiLy.Designer.cs">
+      <DependentUpon>DaiLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BAOCAOCONGNODAILY.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BAOCAODOANHSO.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CTBAOCAOCONGNODAILY.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CTBAOCAODOANHSO.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CTPHIEUTHUTIEN.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CTPHIEUXUATHANG.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DAILY.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LOAIDAILY.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LOAIMATHANG.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\MATHANG.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PHIEUTHUTIEN.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PHIEUTHUTIENNO.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PHIEUXUATHANG.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\QuanLyDLModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyDLModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\QuanLyDLModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\QuanLyDLModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyDLModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\sysdiagram.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\THAMSO.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\User.cs">
+      <DependentUpon>QuanLyDLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage.Designer.cs">
+      <DependentUpon>Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatHang.Designer.cs">
+      <DependentUpon>MatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ThuTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThuTien.Designer.cs">
+      <DependentUpon>ThuTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XuatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XuatHang.Designer.cs">
+      <DependentUpon>XuatHang.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaoCao.resx">
+      <DependentUpon>BaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaiLy.resx">
+      <DependentUpon>DaiLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage.resx">
+      <DependentUpon>Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatHang.resx">
+      <DependentUpon>MatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThuTien.resx">
+      <DependentUpon>ThuTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XuatHang.resx">
+      <DependentUpon>XuatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DAL\QuanLyDLModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyDLModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\QuanLyDLModel.edmx.diagram">
+      <DependentUpon>QuanLyDLModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\building-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\building-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart-2-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart-2-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coins-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coins-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hiclipart.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo triumph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motorcycle-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motorcycle-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package-2-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package-2-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlockb-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triumph-4k-dr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triumphbanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userb-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-mark-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation-mark 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation-mark 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation-mark1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{8b723640-b445-4a9d-8be7-7efb836240b9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{b181a1b2-5ebe-4d15-a304-48fcdb237236}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visible-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invisible-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invisible-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visible-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-3-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-logout-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-7-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-2-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-9-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-9-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\QuanLyDLModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyDLModel.edmx</DependentUpon>
+      <LastGenOutput>QuanLyDLModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\QuanLyDLModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyDLModel.edmx</DependentUpon>
+      <LastGenOutput>QuanLyDLModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

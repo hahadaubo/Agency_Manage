@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BAOCAOCONGNODAILY">
+    <Key>
+      <PropertyRef Name="MaBCCNDL" />
+    </Key>
+    <Property Name="MaBCCNDL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Thang" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAOCAODOANHSO">
+    <Key>
+      <PropertyRef Name="MaBCDS" />
+    </Key>
+    <Property Name="MaBCDS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Thang" Type="Int32" Nullable="false" />
+    <Property Name="SoPhieuXuat" Type="Int32" Nullable="false" />
+    <Property Name="TongTriGia" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTBAOCAOCONGNODAILY">
+    <Key>
+      <PropertyRef Name="MaCTBCCNDL" />
+    </Key>
+    <Property Name="MaCTBCCNDL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaBCCNDL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NoDau" Type="Int32" Nullable="false" />
+    <Property Name="NoCuoi" Type="Int32" Nullable="false" />
+    <Property Name="PhatSinh" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTBAOCAODOANHSO">
+    <Key>
+      <PropertyRef Name="MaCTBCDS" />
+    </Key>
+    <Property Name="MaCTBCDS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaBCDS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TriGia" Type="Int32" Nullable="false" />
+    <Property Name="TiLe" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTPHIEUTHUTIEN">
+    <Key>
+      <PropertyRef Name="MaCTPTT" />
+    </Key>
+    <Property Name="MaCTPTT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaThuTien" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaXuatHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTPHIEUXUATHANG">
+    <Key>
+      <PropertyRef Name="MaCTPXH" />
+    </Key>
+    <Property Name="MaCTPXH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaXuatHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DAILY">
+    <Key>
+      <PropertyRef Name="MaDaiLy" />
+    </Key>
+    <Property Name="MaDaiLy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenDaiLy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaLoaiDL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Quan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayTiepNhan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TienNo" Type="Int32" />
+    <Property Name="QuanPOS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LOAIDAILY" Relationship="Self.FK_DAILY_LOAIDAILY" FromRole="DAILY" ToRole="LOAIDAILY" />
+    <NavigationProperty Name="PHIEUTHUTIENs" Relationship="Self.FK_PHIEUTHUTIEN_DAILY" FromRole="DAILY" ToRole="PHIEUTHUTIEN" />
+  </EntityType>
+  <EntityType Name="LOAIDAILY">
+    <Key>
+      <PropertyRef Name="MaLoaiDL" />
+    </Key>
+    <Property Name="MaLoaiDL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoaiDL" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DAILies" Relationship="Self.FK_DAILY_LOAIDAILY" FromRole="LOAIDAILY" ToRole="DAILY" />
+  </EntityType>
+  <EntityType Name="LOAIMATHANG">
+    <Key>
+      <PropertyRef Name="MaLoaiHang" />
+    </Key>
+    <Property Name="MaLoaiHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoaiHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MATHANGs" Relationship="Self.FK_MATHANG_LOAIMATHANG" FromRole="LOAIMATHANG" ToRole="MATHANG" />
+  </EntityType>
+  <EntityType Name="MATHANG">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaLoaiHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenMatHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoaiHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonViTinh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LOAIMATHANG" Relationship="Self.FK_MATHANG_LOAIMATHANG" FromRole="MATHANG" ToRole="LOAIMATHANG" />
+    <NavigationProperty Name="PHIEUXUATHANGs" Relationship="Self.FK_PHIEUXUATHANG_MATHANG" FromRole="MATHANG" ToRole="PHIEUXUATHANG" />
+  </EntityType>
+  <EntityType Name="PHIEUTHUTIEN">
+    <Key>
+      <PropertyRef Name="MaThuTien" />
+    </Key>
+    <Property Name="MaThuTien" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaXuatHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaDaiLy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenDaiLy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaLoaiDL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Quan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayThuTien" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="DAILY" Relationship="Self.FK_PHIEUTHUTIEN_DAILY" FromRole="PHIEUTHUTIEN" ToRole="DAILY" />
+    <NavigationProperty Name="PHIEUXUATHANG" Relationship="Self.FK_PHIEUTHUTIEN_PHIEUXUATHANG" FromRole="PHIEUTHUTIEN" ToRole="PHIEUXUATHANG" />
+  </EntityType>
+  <EntityType Name="PHIEUTHUTIENNO">
+    <Key>
+      <PropertyRef Name="MaPTTN" />
+    </Key>
+    <Property Name="MaPTTN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaDaiLy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaThuTien" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SoTienThu" Type="Int32" Nullable="false" />
+    <Property Name="TienConLai" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHIEUXUATHANG">
+    <Key>
+      <PropertyRef Name="MaXuatHang" />
+    </Key>
+    <Property Name="MaXuatHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TenMatHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonViTinh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="DonGia" Type="Int32" Nullable="false" />
+    <Property Name="ThanhTien" Type="Int32" Nullable="false" />
+    <Property Name="NgayLapPhieu" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TongTien" Type="Int32" Nullable="false" />
+    <Property Name="SoTienTra" Type="Int32" Nullable="false" />
+    <Property Name="TienNo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MATHANG" Relationship="Self.FK_PHIEUXUATHANG_MATHANG" FromRole="PHIEUXUATHANG" ToRole="MATHANG" />
+    <NavigationProperty Name="PHIEUTHUTIENs" Relationship="Self.FK_PHIEUTHUTIEN_PHIEUXUATHANG" FromRole="PHIEUXUATHANG" ToRole="PHIEUTHUTIEN" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="THAMSO">
+    <Key>
+      <PropertyRef Name="DLToiDa" />
+      <PropertyRef Name="TNToiDa1" />
+      <PropertyRef Name="TNToiDa2" />
+    </Key>
+    <Property Name="DLToiDa" Type="Int32" Nullable="false" />
+    <Property Name="TNToiDa1" Type="Int32" Nullable="false" />
+    <Property Name="TNToiDa2" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DAILY_LOAIDAILY">
+    <End Role="LOAIDAILY" Type="Self.LOAIDAILY" Multiplicity="1" />
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIDAILY">
+        <PropertyRef Name="MaLoaiDL" />
+      </Principal>
+      <Dependent Role="DAILY">
+        <PropertyRef Name="MaLoaiDL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUTHUTIEN_DAILY">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MATHANG_LOAIMATHANG">
+    <End Role="LOAIMATHANG" Type="Self.LOAIMATHANG" Multiplicity="1" />
+    <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIMATHANG">
+        <PropertyRef Name="MaLoaiHang" />
+      </Principal>
+      <Dependent Role="MATHANG">
+        <PropertyRef Name="MaLoaiHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUXUATHANG_MATHANG">
+    <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="0..1" />
+    <End Role="PHIEUXUATHANG" Type="Self.PHIEUXUATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATHANG">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="PHIEUXUATHANG">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUTHUTIEN_PHIEUXUATHANG">
+    <End Role="PHIEUXUATHANG" Type="Self.PHIEUXUATHANG" Multiplicity="1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUXUATHANG">
+        <PropertyRef Name="MaXuatHang" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaXuatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyDaiLyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BAOCAOCONGNODAILies" EntityType="Self.BAOCAOCONGNODAILY" />
+    <EntitySet Name="BAOCAODOANHSOes" EntityType="Self.BAOCAODOANHSO" />
+    <EntitySet Name="CTBAOCAOCONGNODAILies" EntityType="Self.CTBAOCAOCONGNODAILY" />
+    <EntitySet Name="CTBAOCAODOANHSOes" EntityType="Self.CTBAOCAODOANHSO" />
+    <EntitySet Name="CTPHIEUTHUTIENs" EntityType="Self.CTPHIEUTHUTIEN" />
+    <EntitySet Name="CTPHIEUXUATHANGs" EntityType="Self.CTPHIEUXUATHANG" />
+    <EntitySet Name="DAILies" EntityType="Self.DAILY" />
+    <EntitySet Name="LOAIDAILies" EntityType="Self.LOAIDAILY" />
+    <EntitySet Name="LOAIMATHANGs" EntityType="Self.LOAIMATHANG" />
+    <EntitySet Name="MATHANGs" EntityType="Self.MATHANG" />
+    <EntitySet Name="PHIEUTHUTIENs" EntityType="Self.PHIEUTHUTIEN" />
+    <EntitySet Name="PHIEUTHUTIENNOes" EntityType="Self.PHIEUTHUTIENNO" />
+    <EntitySet Name="PHIEUXUATHANGs" EntityType="Self.PHIEUXUATHANG" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
+    <AssociationSet Name="FK_DAILY_LOAIDAILY" Association="Self.FK_DAILY_LOAIDAILY">
+      <End Role="LOAIDAILY" EntitySet="LOAIDAILies" />
+      <End Role="DAILY" EntitySet="DAILies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUTHUTIEN_DAILY" Association="Self.FK_PHIEUTHUTIEN_DAILY">
+      <End Role="DAILY" EntitySet="DAILies" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MATHANG_LOAIMATHANG" Association="Self.FK_MATHANG_LOAIMATHANG">
+      <End Role="LOAIMATHANG" EntitySet="LOAIMATHANGs" />
+      <End Role="MATHANG" EntitySet="MATHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUXUATHANG_MATHANG" Association="Self.FK_PHIEUXUATHANG_MATHANG">
+      <End Role="MATHANG" EntitySet="MATHANGs" />
+      <End Role="PHIEUXUATHANG" EntitySet="PHIEUXUATHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUTHUTIEN_PHIEUXUATHANG" Association="Self.FK_PHIEUTHUTIEN_PHIEUXUATHANG">
+      <End Role="PHIEUXUATHANG" EntitySet="PHIEUXUATHANGs" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

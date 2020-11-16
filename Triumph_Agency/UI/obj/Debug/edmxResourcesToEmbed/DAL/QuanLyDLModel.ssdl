@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BAOCAOCONGNODAILY">
+    <Key>
+      <PropertyRef Name="MaBCCNDL" />
+    </Key>
+    <Property Name="MaBCCNDL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Thang" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAOCAODOANHSO">
+    <Key>
+      <PropertyRef Name="MaBCDS" />
+    </Key>
+    <Property Name="MaBCDS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Thang" Type="int" Nullable="false" />
+    <Property Name="SoPhieuXuat" Type="int" Nullable="false" />
+    <Property Name="TongTriGia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTBAOCAOCONGNODAILY">
+    <Key>
+      <PropertyRef Name="MaCTBCCNDL" />
+    </Key>
+    <Property Name="MaCTBCCNDL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaBCCNDL" Type="nvarchar" MaxLength="20" />
+    <Property Name="NoDau" Type="int" Nullable="false" />
+    <Property Name="NoCuoi" Type="int" Nullable="false" />
+    <Property Name="PhatSinh" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTBAOCAODOANHSO">
+    <Key>
+      <PropertyRef Name="MaCTBCDS" />
+    </Key>
+    <Property Name="MaCTBCDS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaBCDS" Type="nvarchar" MaxLength="20" />
+    <Property Name="MaLoaiHang" Type="nvarchar" MaxLength="20" />
+    <Property Name="TriGia" Type="int" Nullable="false" />
+    <Property Name="TiLe" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTPHIEUTHUTIEN">
+    <Key>
+      <PropertyRef Name="MaCTPTT" />
+    </Key>
+    <Property Name="MaCTPTT" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaThuTien" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaXuatHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTPHIEUXUATHANG">
+    <Key>
+      <PropertyRef Name="MaCTPXH" />
+    </Key>
+    <Property Name="MaCTPXH" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaXuatHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DAILY">
+    <Key>
+      <PropertyRef Name="MaDaiLy" />
+    </Key>
+    <Property Name="MaDaiLy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenDaiLy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaLoaiDL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SDT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quan" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="NgayTiepNhan" Type="datetime" Nullable="false" />
+    <Property Name="TienNo" Type="int" />
+    <Property Name="QuanPOS" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="LOAIDAILY">
+    <Key>
+      <PropertyRef Name="MaLoaiDL" />
+    </Key>
+    <Property Name="MaLoaiDL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LoaiDL" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOAIMATHANG">
+    <Key>
+      <PropertyRef Name="MaLoaiHang" />
+    </Key>
+    <Property Name="MaLoaiHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LoaiHang" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MATHANG">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaLoaiHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenMatHang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoaiHang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DonViTinh" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DonGia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHIEUTHUTIEN">
+    <Key>
+      <PropertyRef Name="MaThuTien" />
+    </Key>
+    <Property Name="MaThuTien" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaXuatHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaDaiLy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenDaiLy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaLoaiDL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SDT" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Quan" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="NgayThuTien" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHIEUTHUTIENNO">
+    <Key>
+      <PropertyRef Name="MaPTTN" />
+    </Key>
+    <Property Name="MaPTTN" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaDaiLy" Type="nvarchar" MaxLength="20" />
+    <Property Name="MaThuTien" Type="nvarchar" MaxLength="20" />
+    <Property Name="SoTienThu" Type="int" Nullable="false" />
+    <Property Name="TienConLai" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHIEUXUATHANG">
+    <Key>
+      <PropertyRef Name="MaXuatHang" />
+    </Key>
+    <Property Name="MaXuatHang" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaHang" Type="nvarchar" MaxLength="20" />
+    <Property Name="TenMatHang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DonViTinh" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="DonGia" Type="int" Nullable="false" />
+    <Property Name="ThanhTien" Type="int" Nullable="false" />
+    <Property Name="NgayLapPhieu" Type="datetime" Nullable="false" />
+    <Property Name="TongTien" Type="int" Nullable="false" />
+    <Property Name="SoTienTra" Type="int" Nullable="false" />
+    <Property Name="TienNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Manage.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="THAMSO">
+    <Key>
+      <PropertyRef Name="DLToiDa" />
+      <PropertyRef Name="TNToiDa1" />
+      <PropertyRef Name="TNToiDa2" />
+    </Key>
+    <Property Name="DLToiDa" Type="int" Nullable="false" />
+    <Property Name="TNToiDa1" Type="int" Nullable="false" />
+    <Property Name="TNToiDa2" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DAILY_LOAIDAILY">
+    <End Role="LOAIDAILY" Type="Self.LOAIDAILY" Multiplicity="1" />
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIDAILY">
+        <PropertyRef Name="MaLoaiDL" />
+      </Principal>
+      <Dependent Role="DAILY">
+        <PropertyRef Name="MaLoaiDL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MATHANG_LOAIMATHANG">
+    <End Role="LOAIMATHANG" Type="Self.LOAIMATHANG" Multiplicity="1" />
+    <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIMATHANG">
+        <PropertyRef Name="MaLoaiHang" />
+      </Principal>
+      <Dependent Role="MATHANG">
+        <PropertyRef Name="MaLoaiHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUTHUTIEN_DAILY">
+    <End Role="DAILY" Type="Self.DAILY" Multiplicity="1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAILY">
+        <PropertyRef Name="MaDaiLy" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaDaiLy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUTHUTIEN_PHIEUXUATHANG">
+    <End Role="PHIEUXUATHANG" Type="Self.PHIEUXUATHANG" Multiplicity="1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUXUATHANG">
+        <PropertyRef Name="MaXuatHang" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaXuatHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHIEUXUATHANG_MATHANG">
+    <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="0..1" />
+    <End Role="PHIEUXUATHANG" Type="Self.PHIEUXUATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATHANG">
+        <PropertyRef Name="MaHang" />
+      </Principal>
+      <Dependent Role="PHIEUXUATHANG">
+        <PropertyRef Name="MaHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyModelStoreContainer">
+    <EntitySet Name="BAOCAOCONGNODAILY" EntityType="Self.BAOCAOCONGNODAILY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAOCAODOANHSO" EntityType="Self.BAOCAODOANHSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTBAOCAOCONGNODAILY" EntityType="Self.CTBAOCAOCONGNODAILY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTBAOCAODOANHSO" EntityType="Self.CTBAOCAODOANHSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPHIEUTHUTIEN" EntityType="Self.CTPHIEUTHUTIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPHIEUXUATHANG" EntityType="Self.CTPHIEUXUATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAILY" EntityType="Self.DAILY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIDAILY" EntityType="Self.LOAIDAILY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIMATHANG" EntityType="Self.LOAIMATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MATHANG" EntityType="Self.MATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUTHUTIEN" EntityType="Self.PHIEUTHUTIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUTHUTIENNO" EntityType="Self.PHIEUTHUTIENNO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUXUATHANG" EntityType="Self.PHIEUXUATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THAMSO" EntityType="Self.THAMSO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [THAMSO].[DLToiDa] AS [DLToiDa], 
+    [THAMSO].[TNToiDa1] AS [TNToiDa1], 
+    [THAMSO].[TNToiDa2] AS [TNToiDa2]
+    FROM [dbo].[THAMSO] AS [THAMSO]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_DAILY_LOAIDAILY" Association="Self.FK_DAILY_LOAIDAILY">
+      <End Role="LOAIDAILY" EntitySet="LOAIDAILY" />
+      <End Role="DAILY" EntitySet="DAILY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MATHANG_LOAIMATHANG" Association="Self.FK_MATHANG_LOAIMATHANG">
+      <End Role="LOAIMATHANG" EntitySet="LOAIMATHANG" />
+      <End Role="MATHANG" EntitySet="MATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUTHUTIEN_DAILY" Association="Self.FK_PHIEUTHUTIEN_DAILY">
+      <End Role="DAILY" EntitySet="DAILY" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUTHUTIEN_PHIEUXUATHANG" Association="Self.FK_PHIEUTHUTIEN_PHIEUXUATHANG">
+      <End Role="PHIEUXUATHANG" EntitySet="PHIEUXUATHANG" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHIEUXUATHANG_MATHANG" Association="Self.FK_PHIEUXUATHANG_MATHANG">
+      <End Role="MATHANG" EntitySet="MATHANG" />
+      <End Role="PHIEUXUATHANG" EntitySet="PHIEUXUATHANG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
